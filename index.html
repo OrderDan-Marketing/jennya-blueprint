@@ -6,7 +6,7 @@
 <title>JENNYA 婕妮雅｜整體行銷企劃藍圖</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;500;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
   :root {
     --navy: #0F2547;
@@ -18,9 +18,11 @@
     --line: #DCE6EF;
     --ink: #1A2332;
     --muted: #5A6B7E;
+    --max: 1200px;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
 
   body {
     font-family: 'Noto Sans TC', sans-serif;
@@ -29,6 +31,7 @@
     line-height: 1.7;
     font-weight: 300;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
   }
 
   h1, h2, h3, h4 {
@@ -38,14 +41,22 @@
     letter-spacing: -0.01em;
   }
 
+  /* ───── 容器系統：所有 section 用 .wrap 置中 ───── */
   section {
     position: relative;
-    padding: 90px 8vw;
+    padding: clamp(60px, 8vw, 110px) clamp(20px, 5vw, 60px);
     overflow: hidden;
   }
 
+  .wrap {
+    max-width: var(--max);
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+
   .mark {
-    font-size: 13px;
+    font-size: clamp(12px, 1vw, 14px);
     letter-spacing: 0.2em;
     color: var(--blue);
     margin-bottom: 16px;
@@ -64,10 +75,10 @@
   .page-1::before {
     content: "";
     position: absolute;
-    top: 8%;
-    right: -80px;
-    width: 280px;
-    height: 280px;
+    top: 6%;
+    right: -100px;
+    width: clamp(180px, 22vw, 320px);
+    height: clamp(180px, 22vw, 320px);
     border-radius: 50%;
     background: var(--bubble);
     opacity: 0.7;
@@ -75,34 +86,30 @@
   .page-1::after {
     content: "";
     position: absolute;
-    bottom: 12%;
-    left: -60px;
-    width: 180px;
-    height: 180px;
+    bottom: 10%;
+    left: -80px;
+    width: clamp(120px, 16vw, 220px);
+    height: clamp(120px, 16vw, 220px);
     border-radius: 50%;
     background: var(--pale);
     opacity: 0.5;
   }
 
   .brand-tag {
-    position: relative;
-    z-index: 2;
     display: inline-block;
-    padding: 8px 18px;
+    padding: 10px 22px;
     background: var(--navy);
     color: #fff;
-    font-size: 13px;
+    font-size: clamp(12px, 1vw, 14px);
     letter-spacing: 0.15em;
     border-radius: 999px;
-    margin-bottom: 32px;
+    margin-bottom: clamp(28px, 3vw, 40px);
   }
 
   h1 {
-    position: relative;
-    z-index: 2;
-    font-size: clamp(36px, 5.5vw, 60px);
-    line-height: 1.25;
-    margin-bottom: 32px;
+    font-size: clamp(34px, 6vw, 78px);
+    line-height: 1.2;
+    margin-bottom: clamp(28px, 3vw, 44px);
     max-width: 18ch;
   }
   h1 .accent {
@@ -116,117 +123,108 @@
     left: -2%;
     bottom: 4%;
     width: 104%;
-    height: 10px;
+    height: clamp(8px, 0.9vw, 14px);
     background: var(--pale);
     z-index: -1;
   }
 
   .lead {
-    position: relative;
-    z-index: 2;
-    font-size: 17px;
-    line-height: 1.95;
+    font-size: clamp(15px, 1.3vw, 19px);
+    line-height: 2;
     color: var(--muted);
-    max-width: 680px;
-    margin-bottom: 56px;
+    max-width: 760px;
+    margin-bottom: clamp(40px, 5vw, 64px);
   }
   .lead strong {
     color: var(--navy);
     font-weight: 500;
   }
 
-  /* 並列雙軸視覺化 */
   .axis-flow {
-    position: relative;
-    z-index: 2;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    max-width: 1100px;
+    gap: clamp(16px, 2vw, 24px);
     margin-bottom: 24px;
   }
 
   .axis-card {
     background: #fff;
     border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 28px 30px;
+    border-radius: 14px;
+    padding: clamp(24px, 2.6vw, 36px);
     transition: transform 0.3s, box-shadow 0.3s;
     position: relative;
   }
   .axis-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 32px -12px rgba(15, 37, 71, 0.15);
+    box-shadow: 0 16px 40px -16px rgba(15, 37, 71, 0.18);
   }
   .axis-card.featured {
     background: var(--navy);
     border-color: var(--navy);
   }
   .axis-card .label {
-    font-size: 12px;
+    font-size: clamp(11px, 0.9vw, 13px);
     letter-spacing: 0.18em;
     color: var(--blue);
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     font-weight: 500;
   }
   .axis-card.featured .label { color: var(--sky); }
   .axis-card h3 {
-    font-size: 20px;
-    margin-bottom: 12px;
+    font-size: clamp(18px, 1.8vw, 24px);
+    margin-bottom: 14px;
     line-height: 1.4;
   }
   .axis-card.featured h3 { color: #fff; }
   .axis-card p {
-    font-size: 14px;
+    font-size: clamp(14px, 1.1vw, 16px);
     color: var(--muted);
-    line-height: 1.85;
+    line-height: 1.95;
   }
   .axis-card.featured p { color: rgba(255, 255, 255, 0.78); }
 
   .merge-arrow {
-    position: relative;
-    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 8px 0 16px;
-    max-width: 1100px;
   }
   .merge-arrow svg {
     width: 100%;
-    max-width: 280px;
-    height: 50px;
+    max-width: 320px;
+    height: 56px;
   }
 
   .release-bar {
-    position: relative;
-    z-index: 2;
     background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
     color: #fff;
-    border-radius: 12px;
-    padding: 24px 32px;
-    max-width: 1100px;
+    border-radius: 14px;
+    padding: clamp(24px, 2.6vw, 36px);
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 20px;
+  }
+  .release-bar .left {
+    flex: 1 1 240px;
   }
   .release-bar .left .label {
-    font-size: 12px;
+    font-size: clamp(11px, 0.9vw, 13px);
     color: var(--sky);
     letter-spacing: 0.18em;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
   .release-bar .left h3 {
     color: #fff;
-    font-size: 22px;
+    font-size: clamp(20px, 2vw, 28px);
   }
   .release-bar .right {
-    font-size: 14px;
+    flex: 1 1 360px;
+    font-size: clamp(14px, 1.1vw, 16px);
     color: rgba(255, 255, 255, 0.85);
-    max-width: 540px;
-    line-height: 1.85;
+    line-height: 1.95;
   }
 
   /* ═══════════ 第二屏：內部品牌 ═══════════ */
@@ -236,10 +234,10 @@
   .page-2::before {
     content: "";
     position: absolute;
-    top: 10%;
-    left: -100px;
-    width: 240px;
-    height: 240px;
+    top: 8%;
+    left: -120px;
+    width: clamp(160px, 20vw, 280px);
+    height: clamp(160px, 20vw, 280px);
     border-radius: 50%;
     background: var(--bubble);
     opacity: 0.5;
@@ -247,32 +245,30 @@
   .page-2::after {
     content: "";
     position: absolute;
-    bottom: 10%;
-    right: -60px;
-    width: 160px;
-    height: 160px;
+    bottom: 8%;
+    right: -80px;
+    width: clamp(120px, 14vw, 200px);
+    height: clamp(120px, 14vw, 200px);
     border-radius: 50%;
     background: var(--pale);
     opacity: 0.4;
   }
 
   .page-head {
-    position: relative;
-    z-index: 2;
-    margin-bottom: 56px;
-    max-width: 760px;
+    margin-bottom: clamp(40px, 5vw, 64px);
+    max-width: 820px;
   }
   .page-head h2 {
-    font-size: clamp(28px, 4vw, 42px);
+    font-size: clamp(30px, 4.5vw, 54px);
     line-height: 1.3;
-    margin-bottom: 20px;
+    margin-bottom: clamp(16px, 1.6vw, 24px);
   }
   .page-head h2 .accent {
     color: var(--blue);
   }
   .page-head .desc {
-    font-size: 16px;
-    line-height: 1.95;
+    font-size: clamp(15px, 1.2vw, 18px);
+    line-height: 2;
     color: var(--muted);
   }
   .page-head .desc strong {
@@ -281,18 +277,16 @@
   }
 
   .resource-grid {
-    position: relative;
-    z-index: 2;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: clamp(20px, 2.4vw, 32px);
   }
 
   .res-card {
     background: var(--bg);
     border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 32px 30px;
+    border-radius: 16px;
+    padding: clamp(28px, 3vw, 40px);
     transition: transform 0.3s, border-color 0.3s;
     position: relative;
     overflow: hidden;
@@ -304,10 +298,10 @@
   .res-card::before {
     content: "";
     position: absolute;
-    top: -30px;
-    right: -30px;
-    width: 100px;
-    height: 100px;
+    top: -40px;
+    right: -40px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     background: var(--bubble);
     opacity: 0.6;
@@ -316,40 +310,40 @@
   .res-card .label {
     position: relative;
     z-index: 2;
-    font-size: 12px;
+    font-size: clamp(11px, 0.9vw, 13px);
     color: var(--blue);
     letter-spacing: 0.18em;
     font-weight: 500;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     display: block;
   }
   .res-card h3 {
     position: relative;
     z-index: 2;
-    font-size: 22px;
-    margin-bottom: 8px;
+    font-size: clamp(20px, 2vw, 26px);
+    margin-bottom: 10px;
   }
   .res-card .role {
     position: relative;
     z-index: 2;
-    font-size: 13px;
+    font-size: clamp(13px, 1vw, 15px);
     color: var(--muted);
-    margin-bottom: 24px;
-    line-height: 1.7;
+    margin-bottom: clamp(20px, 2.2vw, 28px);
+    line-height: 1.85;
   }
 
   .res-list {
     position: relative;
     z-index: 2;
     list-style: none;
-    margin-bottom: 24px;
+    margin-bottom: clamp(20px, 2.2vw, 28px);
   }
   .res-list li {
-    padding: 14px 0;
+    padding: clamp(12px, 1.2vw, 16px) 0;
     border-top: 1px solid var(--line);
-    font-size: 14px;
+    font-size: clamp(13px, 1vw, 15px);
     color: var(--ink);
-    line-height: 1.7;
+    line-height: 1.85;
   }
   .res-list li:first-child { border-top: 0; padding-top: 0; }
   .res-list li strong {
@@ -357,10 +351,11 @@
     color: var(--navy);
     font-weight: 500;
     margin-bottom: 4px;
+    font-size: clamp(14px, 1.1vw, 16px);
   }
   .res-list li span {
     color: var(--muted);
-    font-size: 13px;
+    font-size: clamp(12px, 0.95vw, 14px);
   }
 
   .target-box {
@@ -368,20 +363,20 @@
     z-index: 2;
     background: #fff;
     border: 1px solid var(--blue);
-    border-radius: 10px;
-    padding: 18px 20px;
+    border-radius: 12px;
+    padding: clamp(16px, 1.6vw, 22px) clamp(18px, 1.8vw, 24px);
   }
   .target-box .ttl {
-    font-size: 11px;
+    font-size: clamp(10px, 0.85vw, 12px);
     letter-spacing: 0.18em;
     color: var(--blue);
     font-weight: 500;
     margin-bottom: 8px;
   }
   .target-box .row {
-    font-size: 13px;
+    font-size: clamp(13px, 1vw, 15px);
     color: var(--ink);
-    line-height: 1.85;
+    line-height: 2;
   }
   .target-box .row strong {
     color: var(--navy);
@@ -395,10 +390,10 @@
   .page-3::before {
     content: "";
     position: absolute;
-    top: 18%;
-    right: -60px;
-    width: 200px;
-    height: 200px;
+    top: 16%;
+    right: -80px;
+    width: clamp(140px, 18vw, 240px);
+    height: clamp(140px, 18vw, 240px);
     border-radius: 50%;
     background: var(--pale);
     opacity: 0.4;
@@ -406,37 +401,35 @@
   .page-3::after {
     content: "";
     position: absolute;
-    bottom: 8%;
-    left: 8%;
-    width: 140px;
-    height: 140px;
+    bottom: 6%;
+    left: 6%;
+    width: clamp(100px, 12vw, 160px);
+    height: clamp(100px, 12vw, 160px);
     border-radius: 50%;
     background: var(--bubble);
     opacity: 0.5;
   }
 
-  /* 目標數字大區塊 */
   .target-hero {
-    position: relative;
-    z-index: 2;
     background: var(--navy);
     color: #fff;
-    border-radius: 16px;
-    padding: 44px 48px;
-    margin-bottom: 40px;
+    border-radius: 18px;
+    padding: clamp(32px, 3.5vw, 56px);
+    margin-bottom: clamp(28px, 3vw, 44px);
     display: grid;
     grid-template-columns: 1fr 1.4fr;
-    gap: 40px;
+    gap: clamp(28px, 3vw, 48px);
     align-items: center;
+    position: relative;
     overflow: hidden;
   }
   .target-hero::before {
     content: "";
     position: absolute;
-    top: -60px;
-    right: -60px;
-    width: 220px;
-    height: 220px;
+    top: -80px;
+    right: -80px;
+    width: clamp(180px, 24vw, 280px);
+    height: clamp(180px, 24vw, 280px);
     border-radius: 50%;
     background: rgba(110, 155, 209, 0.12);
   }
@@ -445,27 +438,27 @@
     z-index: 2;
   }
   .target-hero .left .ttl {
-    font-size: 12px;
+    font-size: clamp(11px, 0.9vw, 13px);
     letter-spacing: 0.2em;
     color: var(--sky);
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
   .target-hero .left .big {
     font-family: 'Noto Serif TC', serif;
     font-weight: 700;
     color: #fff;
-    font-size: clamp(40px, 6vw, 64px);
-    line-height: 1.1;
-    margin-bottom: 8px;
+    font-size: clamp(48px, 7vw, 84px);
+    line-height: 1.05;
+    margin-bottom: 10px;
   }
   .target-hero .left .big .unit {
-    font-size: 0.4em;
+    font-size: 0.38em;
     color: var(--sky);
-    margin-left: 6px;
+    margin-left: 8px;
     font-weight: 400;
   }
   .target-hero .left .sub {
-    font-size: 14px;
+    font-size: clamp(14px, 1.1vw, 16px);
     color: rgba(255, 255, 255, 0.7);
     line-height: 1.85;
   }
@@ -477,9 +470,9 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    padding: 14px 0;
+    padding: clamp(14px, 1.5vw, 20px) 0;
     border-top: 1px solid rgba(110, 155, 209, 0.25);
-    font-size: 14px;
+    font-size: clamp(14px, 1.1vw, 16px);
     color: rgba(255, 255, 255, 0.85);
   }
   .target-hero .right .row:first-child { border-top: 0; padding-top: 0; }
@@ -487,34 +480,31 @@
     color: var(--sky);
     font-weight: 500;
     font-family: 'Noto Serif TC', serif;
-    font-size: 18px;
+    font-size: clamp(16px, 1.4vw, 20px);
   }
 
-  /* 兩欄主題：成本 + 合作模式 */
   .two-col {
-    position: relative;
-    z-index: 2;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-bottom: 40px;
+    gap: clamp(20px, 2.4vw, 32px);
+    margin-bottom: clamp(28px, 3vw, 44px);
   }
 
   .topic-block {
     background: #fff;
     border: 1px solid var(--line);
-    border-radius: 14px;
-    padding: 32px 30px;
+    border-radius: 16px;
+    padding: clamp(28px, 3vw, 40px);
     position: relative;
     overflow: hidden;
   }
   .topic-block::before {
     content: "";
     position: absolute;
-    top: -30px;
-    right: -30px;
-    width: 100px;
-    height: 100px;
+    top: -40px;
+    right: -40px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     background: var(--bubble);
     opacity: 0.5;
@@ -522,18 +512,18 @@
   .topic-block .label {
     position: relative;
     z-index: 2;
-    font-size: 12px;
+    font-size: clamp(11px, 0.9vw, 13px);
     letter-spacing: 0.18em;
     color: var(--blue);
     font-weight: 500;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     display: block;
   }
   .topic-block h3 {
     position: relative;
     z-index: 2;
-    font-size: 22px;
-    margin-bottom: 20px;
+    font-size: clamp(20px, 2vw, 26px);
+    margin-bottom: 22px;
   }
   .topic-block ol {
     position: relative;
@@ -543,11 +533,9 @@
   }
   .topic-block ol li {
     counter-increment: itm;
-    padding: 14px 0 14px 38px;
+    padding: clamp(12px, 1.4vw, 18px) 0 clamp(12px, 1.4vw, 18px) 42px;
     border-top: 1px solid var(--line);
-    font-size: 15px;
-    color: var(--ink);
-    line-height: 1.75;
+    line-height: 1.85;
     position: relative;
   }
   .topic-block ol li:first-child { border-top: 0; padding-top: 0; }
@@ -556,45 +544,43 @@
     content: counter(itm, decimal-leading-zero);
     position: absolute;
     left: 0;
-    top: 14px;
+    top: clamp(12px, 1.4vw, 18px);
     font-family: 'Noto Serif TC', serif;
     color: var(--blue);
     font-weight: 500;
-    font-size: 14px;
+    font-size: clamp(13px, 1vw, 15px);
   }
   .topic-block ol li strong {
     display: block;
     color: var(--navy);
     font-weight: 500;
-    margin-bottom: 2px;
-    font-size: 15px;
+    margin-bottom: 4px;
+    font-size: clamp(15px, 1.2vw, 17px);
   }
   .topic-block ol li span {
     color: var(--muted);
-    font-size: 13px;
+    font-size: clamp(12px, 0.95vw, 14px);
   }
 
-  /* 整併放量區塊 */
   .gate-box {
-    position: relative;
-    z-index: 2;
     background: var(--navy);
     color: #fff;
-    padding: 44px 48px;
-    border-radius: 14px;
+    padding: clamp(32px, 3.5vw, 52px);
+    border-radius: 16px;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    gap: 40px;
+    gap: clamp(28px, 3vw, 44px);
     align-items: center;
+    position: relative;
     overflow: hidden;
   }
   .gate-box::before {
     content: "";
     position: absolute;
-    top: -40px;
-    right: -40px;
-    width: 160px;
-    height: 160px;
+    top: -50px;
+    right: -50px;
+    width: clamp(140px, 18vw, 200px);
+    height: clamp(140px, 18vw, 200px);
     border-radius: 50%;
     background: rgba(110, 155, 209, 0.12);
   }
@@ -603,21 +589,21 @@
     z-index: 2;
   }
   .gate-box .left .tag {
-    font-size: 12px;
+    font-size: clamp(11px, 0.9vw, 13px);
     color: var(--sky);
     letter-spacing: 0.2em;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
   .gate-box .left h3 {
     color: #fff;
-    font-size: 26px;
+    font-size: clamp(22px, 2.4vw, 32px);
     line-height: 1.3;
   }
   .gate-box .right {
     position: relative;
     z-index: 2;
-    font-size: 15px;
-    line-height: 1.95;
+    font-size: clamp(14px, 1.15vw, 17px);
+    line-height: 2;
     color: rgba(255, 255, 255, 0.85);
   }
   .gate-box .right strong {
@@ -625,12 +611,11 @@
     font-weight: 500;
   }
 
-  /* footer */
   footer {
     background: var(--navy);
     color: rgba(255, 255, 255, 0.7);
-    padding: 48px 8vw;
-    font-size: 13px;
+    padding: clamp(36px, 4vw, 56px) clamp(20px, 5vw, 60px);
+    font-size: clamp(12px, 1vw, 14px);
     text-align: center;
     line-height: 2;
   }
@@ -639,14 +624,47 @@
     font-weight: 500;
   }
 
-  @media (max-width: 880px) {
-    section { padding: 70px 6vw; }
-    .axis-flow { grid-template-columns: 1fr; gap: 16px; }
-    .release-bar { padding: 20px 24px; }
-    .resource-grid { grid-template-columns: 1fr; gap: 16px; }
-    .target-hero { grid-template-columns: 1fr; padding: 32px 28px; gap: 24px; }
-    .two-col { grid-template-columns: 1fr; gap: 16px; }
-    .gate-box { grid-template-columns: 1fr; padding: 32px 28px; gap: 20px; }
+  /* ═══════════ 響應式：平板（≤960px） ═══════════ */
+  @media (max-width: 960px) {
+    .axis-flow { grid-template-columns: 1fr; }
+    .resource-grid { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+    .target-hero { grid-template-columns: 1fr; }
+    .gate-box { grid-template-columns: 1fr; }
+    .release-bar { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ═══════════ 響應式：手機（≤560px）：限縮字體上限 ═══════════ */
+  @media (max-width: 560px) {
+    section { padding: 56px 18px; }
+
+    h1 { font-size: 32px !important; line-height: 1.3; }
+    h1 .accent::after { height: 7px; }
+    .lead { font-size: 14px; line-height: 1.85; }
+    .brand-tag { font-size: 11px; padding: 7px 16px; }
+
+    .page-head h2 { font-size: 26px !important; }
+    .page-head .desc { font-size: 14px; }
+
+    .axis-card { padding: 22px; }
+    .axis-card h3 { font-size: 18px; }
+    .axis-card p { font-size: 13px; }
+
+    .res-card { padding: 24px 22px; border-radius: 12px; }
+    .res-card h3 { font-size: 18px; }
+    .res-card .role { font-size: 13px; }
+    .res-list li strong { font-size: 14px; }
+
+    .target-hero { padding: 28px 24px; border-radius: 12px; }
+    .target-hero .left .big { font-size: 44px !important; }
+
+    .topic-block { padding: 24px 22px; border-radius: 12px; }
+    .topic-block h3 { font-size: 18px; }
+    .topic-block ol li { padding-left: 36px; }
+
+    .gate-box { padding: 28px 24px; border-radius: 12px; }
+    .gate-box .left h3 { font-size: 20px; }
+    .gate-box .right { font-size: 13px; }
   }
 </style>
 </head>
@@ -654,231 +672,232 @@
 
 <!-- ═══════════ 第一屏：策略核心 ═══════════ -->
 <section class="page-1">
-  <div class="brand-tag">JENNYA · 婕妮雅整體行銷企劃藍圖</div>
+  <div class="wrap">
+    <div class="brand-tag">JENNYA · 婕妮雅整體行銷企劃藍圖</div>
 
-  <h1>
-    雙軸<span class="accent">同步推進</span>，<br>
-    整併完成才進入放量。
-  </h1>
+    <h1>
+      雙軸<span class="accent">同步推進</span>，<br>
+      整併完成才進入放量。
+    </h1>
 
-  <p class="lead">
-    婕妮雅主力洗髮品系列訴求中齡以上女性的出油、乾性掉髮與頭皮屑問題，
-    單價高於市售髮品一倍有餘。在這個定位下，唯一能說服客戶的訴求是「有效性」——
-    使用者親身證明的效果，比任何品牌話術都有力。因此整體策略以
-    <strong>內部品牌宣傳</strong> 與 <strong>外部合作導流</strong>
-    雙軸同步進行為核心，待兩軸整併完成、素材實際轉出營收後，才進入廣告放量階段。
-  </p>
+    <p class="lead">
+      婕妮雅主力洗髮品系列訴求中齡以上女性的出油、乾性掉髮與頭皮屑問題，
+      單價高於市售髮品一倍有餘。在這個定位下，唯一能說服客戶的訴求是「有效性」——
+      使用者親身證明的效果，比任何品牌話術都有力。因此整體策略以
+      <strong>內部品牌宣傳</strong> 與 <strong>外部合作導流</strong>
+      雙軸同步進行為核心，待兩軸整併完成、素材實際轉出營收後，才進入廣告放量階段。
+    </p>
 
-  <div class="axis-flow">
-    <div class="axis-card">
-      <span class="label">AXIS A · 並列同步</span>
-      <h3>內部品牌宣傳</h3>
-      <p>
-        圖文（優惠／活動／知識）與影文（人＋產品使用心得／撇步）並列產出，
-        加強信任感，承接外部導流進來的客戶。
-      </p>
+    <div class="axis-flow">
+      <div class="axis-card">
+        <div class="label">AXIS A · 並列同步</div>
+        <h3>內部品牌宣傳</h3>
+        <p>
+          圖文（優惠／活動／知識）與影文（人＋產品使用心得／撇步）並列產出，
+          加強信任感，承接外部導流進來的客戶。
+        </p>
+      </div>
+
+      <div class="axis-card">
+        <div class="label">AXIS B · 並列同步</div>
+        <h3>外部合作導流</h3>
+        <p>
+          以使用者實證口碑為主，透過分潤、經銷採購等模式洽談合作對象，
+          引導用戶進入品牌官方陣地。
+        </p>
+      </div>
     </div>
 
-    <div class="axis-card">
-      <span class="label">AXIS B · 並列同步</span>
-      <h3>外部合作導流</h3>
-      <p>
-        以使用者實證口碑為主，透過分潤、經銷採購等模式洽談合作對象，
-        引導用戶進入品牌官方陣地。
-      </p>
+    <div class="merge-arrow">
+      <svg viewBox="0 0 320 56" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 40 12 Q 100 12 160 36" fill="none" stroke="#2E5A9C" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M 280 12 Q 220 12 160 36" fill="none" stroke="#2E5A9C" stroke-width="1.6" stroke-linecap="round"/>
+        <line x1="160" y1="36" x2="160" y2="50" stroke="#2E5A9C" stroke-width="1.6" stroke-linecap="round"/>
+        <polygon points="160,56 153,45 167,45" fill="#2E5A9C"/>
+        <text x="160" y="24" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="12" fill="#5A6B7E" letter-spacing="2">整併</text>
+      </svg>
     </div>
-  </div>
 
-  <div class="merge-arrow">
-    <svg viewBox="0 0 280 50" xmlns="http://www.w3.org/2000/svg">
-      <path d="M 30 10 Q 90 10 140 30" fill="none" stroke="#2E5A9C" stroke-width="1.5" stroke-linecap="round"/>
-      <path d="M 250 10 Q 190 10 140 30" fill="none" stroke="#2E5A9C" stroke-width="1.5" stroke-linecap="round"/>
-      <line x1="140" y1="30" x2="140" y2="44" stroke="#2E5A9C" stroke-width="1.5" stroke-linecap="round"/>
-      <polygon points="140,50 134,40 146,40" fill="#2E5A9C"/>
-      <text x="140" y="22" text-anchor="middle" font-family="'Noto Sans TC',sans-serif" font-size="11" fill="#5A6B7E" letter-spacing="2">整併</text>
-    </svg>
-  </div>
-
-  <div class="release-bar axis-card featured" style="display: flex;">
-    <div class="left">
-      <div class="label" style="color: var(--sky);">FINAL · 整併後啟動</div>
-      <h3>廣告放量曝光</h3>
-    </div>
-    <div class="right">
-      當素材池與口碑池整併完成，並驗證能轉出營收時，才把廣告預算用於放量。
-      在此之前的廣告操作只做追蹤架構建置與小額測試。
+    <div class="release-bar">
+      <div class="left">
+        <div class="label">FINAL · 整併後啟動</div>
+        <h3>廣告放量曝光</h3>
+      </div>
+      <div class="right">
+        當素材池與口碑池整併完成，並驗證能轉出營收時，才把廣告預算用於放量。
+        在此之前的廣告操作只做追蹤架構建置與小額測試。
+      </div>
     </div>
   </div>
 </section>
 
 
-<!-- ═══════════ 第二屏：內部品牌（圖文 + 影文 並列） ═══════════ -->
+<!-- ═══════════ 第二屏：內部品牌 ═══════════ -->
 <section class="page-2">
-  <div class="page-head">
-    <div class="mark">AXIS A · 內部品牌宣傳</div>
-    <h2>
-      圖文與影文<span class="accent">同步產出</span>
-    </h2>
-    <p class="desc">
-      內部素材的優勢是速度由自己掌控。所有素材以「呈現有效性」為唯一指標，
-      分為圖文、影文兩類同步推進。每一類各自的<strong>企劃</strong>與<strong>排程</strong>
-      所需資源如下，實際分配與是否外包，需要再做評估。
-    </p>
-  </div>
-
-  <div class="resource-grid">
-
-    <!-- 圖文 -->
-    <div class="res-card">
-      <span class="label">A · GRAPHIC｜圖文</span>
-      <h3>優惠 / 活動 / 知識</h3>
-      <p class="role">承擔品牌活躍度與訊息觸達，是日常溝通的主要載體。</p>
-
-      <ul class="res-list">
-        <li>
-          <strong>企劃</strong>
-          <span>主題切角、優惠活動敘述、頭皮知識內容、視覺風格定調</span>
-        </li>
-        <li>
-          <strong>排程</strong>
-          <span>製作流程節奏、發布週期管理、各通路上稿時程</span>
-        </li>
-      </ul>
-
-      <div class="target-box">
-        <div class="ttl">排程目標</div>
-        <div class="row">
-          穩定期：企劃到出圖 <strong>1~2 週</strong><br>
-          初期建置 SOP 期間：可能拉到 <strong>2~3 週</strong>
-        </div>
-      </div>
+  <div class="wrap">
+    <div class="page-head">
+      <div class="mark">AXIS A · 內部品牌宣傳</div>
+      <h2>
+        圖文與影文<span class="accent">同步產出</span>
+      </h2>
+      <p class="desc">
+        內部素材的優勢是速度由自己掌控。所有素材以「呈現有效性」為唯一指標，
+        分為圖文、影文兩類同步推進。每一類各自的<strong>企劃</strong>與<strong>排程</strong>
+        所需資源如下，實際分配與是否外包，需要再做評估。
+      </p>
     </div>
 
-    <!-- 影文 -->
-    <div class="res-card">
-      <span class="label">B · VIDEO｜影文</span>
-      <h3>人 + 產品使用心得 / 撇步</h3>
-      <p class="role">承載「有效性」訴求的核心載體，是單價高於市售品的關鍵說服力。</p>
+    <div class="resource-grid">
 
-      <ul class="res-list">
-        <li>
-          <strong>企劃</strong>
-          <span>使用情境腳本、痛點對應、轉化引導、真人入鏡安排</span>
-        </li>
-        <li>
-          <strong>排程</strong>
-          <span>拍攝期程、後製剪輯流程、多版本長度規劃、上架時序</span>
-        </li>
-      </ul>
+      <div class="res-card">
+        <div class="label">A · GRAPHIC｜圖文</div>
+        <h3>優惠 / 活動 / 知識</h3>
+        <p class="role">承擔品牌活躍度與訊息觸達，是日常溝通的主要載體。</p>
 
-      <div class="target-box">
-        <div class="ttl">排程目標</div>
-        <div class="row">
-          穩定期：企劃到出片 <strong>2~3 週</strong><br>
-          初期建置期間：可能需要 <strong>3~5 週</strong>
+        <ul class="res-list">
+          <li>
+            <strong>企劃</strong>
+            <span>主題切角、優惠活動敘述、頭皮知識內容、視覺風格定調</span>
+          </li>
+          <li>
+            <strong>排程</strong>
+            <span>製作流程節奏、發布週期管理、各通路上稿時程</span>
+          </li>
+        </ul>
+
+        <div class="target-box">
+          <div class="ttl">排程目標</div>
+          <div class="row">
+            穩定期：企劃到出圖 <strong>1~2 週</strong><br>
+            初期建置 SOP 期間：可能拉到 <strong>2~3 週</strong>
+          </div>
         </div>
       </div>
-    </div>
 
+      <div class="res-card">
+        <div class="label">B · VIDEO｜影文</div>
+        <h3>人 + 產品使用心得 / 撇步</h3>
+        <p class="role">承載「有效性」訴求的核心載體，是單價高於市售品的關鍵說服力。</p>
+
+        <ul class="res-list">
+          <li>
+            <strong>企劃</strong>
+            <span>使用情境腳本、痛點對應、轉化引導、真人入鏡安排</span>
+          </li>
+          <li>
+            <strong>排程</strong>
+            <span>拍攝期程、後製剪輯流程、多版本長度規劃、上架時序</span>
+          </li>
+        </ul>
+
+        <div class="target-box">
+          <div class="ttl">排程目標</div>
+          <div class="row">
+            穩定期：企劃到出片 <strong>2~3 週</strong><br>
+            初期建置期間：可能需要 <strong>3~5 週</strong>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
 
 <!-- ═══════════ 第三屏：外部合作 ═══════════ -->
 <section class="page-3">
-  <div class="page-head">
-    <div class="mark">AXIS B · 外部合作導流</div>
-    <h2>
-      把<span style="color: var(--blue);">合作對象</span>變成口碑來源
-    </h2>
-    <p class="desc">
-      外部合作的關鍵在於用戶買單前需要看見「真實使用後的效果」。
-      合作以分潤、經銷採購等模式運營，但對外洽談需要開發名單、配合對方檔期，
-      整體基本時程為 <strong>1~2 季</strong>。下方列出年度目標、成本結構與合作模式。
-    </p>
-  </div>
-
-  <!-- 年度目標 hero -->
-  <div class="target-hero">
-    <div class="left">
-      <div class="ttl">ANNUAL TARGET · 年度目標</div>
-      <div class="big">100<span class="unit">位 / 年</span></div>
-      <div class="sub">尋找有效合作對象的年度目標</div>
+  <div class="wrap">
+    <div class="page-head">
+      <div class="mark">AXIS B · 外部合作導流</div>
+      <h2>
+        把<span style="color: var(--blue);">合作對象</span>變成口碑來源
+      </h2>
+      <p class="desc">
+        外部合作的關鍵在於用戶買單前需要看見「真實使用後的效果」。
+        合作以分潤、經銷採購等模式運營，但對外洽談需要開發名單、配合對方檔期，
+        整體基本時程為 <strong>1~2 季</strong>。下方列出年度目標、成本結構與合作模式。
+      </p>
     </div>
-    <div class="right">
-      <div class="row">
-        <span>理想月度節奏</span>
-        <strong>8 位 / 月</strong>
+
+    <div class="target-hero">
+      <div class="left">
+        <div class="ttl">ANNUAL TARGET · 年度目標</div>
+        <div class="big">100<span class="unit">位 / 年</span></div>
+        <div class="sub">尋找有效合作對象的年度目標</div>
       </div>
-      <div class="row">
-        <span>初期合理節奏</span>
-        <strong>4 位 / 月</strong>
+      <div class="right">
+        <div class="row">
+          <span>理想月度節奏</span>
+          <strong>8 位 / 月</strong>
+        </div>
+        <div class="row">
+          <span>初期合理節奏</span>
+          <strong>4 位 / 月</strong>
+        </div>
+        <div class="row">
+          <span>整體時程</span>
+          <strong>1~2 季</strong>
+        </div>
       </div>
-      <div class="row">
-        <span>整體時程</span>
-        <strong>1~2 季</strong>
+    </div>
+
+    <div class="two-col">
+
+      <div class="topic-block">
+        <div class="label">COST · 合作成本</div>
+        <h3>成本結構三項</h3>
+        <ol>
+          <li>
+            <strong>樣品</strong>
+            <span>提供合作對象實際試用，是真實心得的物質基礎</span>
+          </li>
+          <li>
+            <strong>分潤抽成</strong>
+            <span>依合作模式給予的分潤金額</span>
+          </li>
+          <li>
+            <strong>對方貼文廣告</strong>
+            <span>合作對象自行投放或品牌共同分擔的推廣費用</span>
+          </li>
+        </ol>
       </div>
-    </div>
-  </div>
 
-  <!-- 成本 + 合作模式 兩欄並列 -->
-  <div class="two-col">
+      <div class="topic-block">
+        <div class="label">MODEL · 合作模式</div>
+        <h3>合作條件四項</h3>
+        <ol>
+          <li>
+            <strong>分潤 15~25%</strong>
+            <span>銷售分潤合作模式</span>
+          </li>
+          <li>
+            <strong>經銷採購 30~40%</strong>
+            <span>批貨採購合作模式</span>
+          </li>
+          <li>
+            <strong>提供基底素材</strong>
+            <span>現有圖庫，或由攝影師商拍提供合作對象使用</span>
+          </li>
+          <li>
+            <strong>開團配合</strong>
+            <span>Shopline 或團購表單形式的開團活動</span>
+          </li>
+        </ol>
+      </div>
 
-    <div class="topic-block">
-      <span class="label">COST · 合作成本</span>
-      <h3>成本結構三項</h3>
-      <ol>
-        <li>
-          <strong>樣品</strong>
-          <span>提供合作對象實際試用，是真實心得的物質基礎</span>
-        </li>
-        <li>
-          <strong>分潤抽成</strong>
-          <span>依合作模式給予的分潤金額</span>
-        </li>
-        <li>
-          <strong>對方貼文廣告</strong>
-          <span>合作對象自行投放或品牌共同分擔的推廣費用</span>
-        </li>
-      </ol>
-    </div>
-
-    <div class="topic-block">
-      <span class="label">MODEL · 合作模式</span>
-      <h3>合作條件四項</h3>
-      <ol>
-        <li>
-          <strong>分潤 15~25%</strong>
-          <span>銷售分潤合作模式</span>
-        </li>
-        <li>
-          <strong>經銷採購 30~40%</strong>
-          <span>批貨採購合作模式</span>
-        </li>
-        <li>
-          <strong>提供基底素材</strong>
-          <span>現有圖庫，或由攝影師商拍提供合作對象使用</span>
-        </li>
-        <li>
-          <strong>開團配合</strong>
-          <span>Shopline 或團購表單形式的開團活動</span>
-        </li>
-      </ol>
     </div>
 
-  </div>
-
-  <!-- 整併 + 放量 -->
-  <div class="gate-box">
-    <div class="left">
-      <div class="tag">FINAL STEP</div>
-      <h3>整併完成<br>才進入放量</h3>
-    </div>
-    <div class="right">
-      當以上兩條軸——<strong>內部素材池</strong>與<strong>外部合作口碑</strong>——
-      都已經進入穩定循環，且素材實際吸引用戶買單、能轉出營收時，
-      才開始把廣告預算用於放量曝光。在此之前的廣告操作只做追蹤架構建置與小額素材驗證。
-      把廣告當作「驗證有效後的放大器」，不是「冷啟動的開拓器」。
+    <div class="gate-box">
+      <div class="left">
+        <div class="tag">FINAL STEP</div>
+        <h3>整併完成<br>才進入放量</h3>
+      </div>
+      <div class="right">
+        當以上兩條軸——<strong>內部素材池</strong>與<strong>外部合作口碑</strong>——
+        都已經進入穩定循環，且素材實際吸引用戶買單、能轉出營收時，
+        才開始把廣告預算用於放量曝光。在此之前的廣告操作只做追蹤架構建置與小額素材驗證。
+        把廣告當作「驗證有效後的放大器」，不是「冷啟動的開拓器」。
+      </div>
     </div>
   </div>
 </section>
@@ -886,7 +905,7 @@
 
 <footer>
   <strong>JENNYA 婕妮雅 · 整體行銷企劃藍圖</strong><br>
-  Orderdan Marketing Co., Ltd. · 簡單廣告營銷有限公司
+  Simple Ad Marketing Co., Ltd. · 簡單廣告營銷有限公司
 </footer>
 
 </body>
