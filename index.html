@@ -19,7 +19,6 @@
     --ink: #1A2332;
     --muted: #5A6B7E;
     --gold: #B8956A;
-    --gold-deep: #946F44;
     --max: 1200px;
   }
 
@@ -192,7 +191,6 @@
     font-size: 14px;
   }
 
-  /* 廣告放量曝光：改寫成緊湊樣式 */
   .release-bar {
     background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
     color: #fff;
@@ -315,7 +313,6 @@
     max-width: 380px;
     line-height: 1.85;
   }
-
   .ai-steps {
     position: relative;
     z-index: 2;
@@ -324,7 +321,6 @@
     gap: 0;
     align-items: stretch;
   }
-
   .ai-step {
     background: rgba(255, 255, 255, 0.06);
     border: 1px solid rgba(110, 155, 209, 0.25);
@@ -361,12 +357,101 @@
     height: 28px;
   }
 
+  /* 共用：素材製作三原則（從原 Katie 區塊移過來） */
+  .principles-bar {
+    background: linear-gradient(135deg, var(--gold) 0%, #946F44 100%);
+    color: #fff;
+    border-radius: 16px;
+    padding: clamp(28px, 3vw, 42px);
+    margin-bottom: clamp(36px, 4vw, 56px);
+    position: relative;
+    overflow: hidden;
+  }
+  .principles-bar::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    right: -60px;
+    width: clamp(160px, 18vw, 220px);
+    height: clamp(160px, 18vw, 220px);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .principles-bar::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    left: 30%;
+    width: clamp(100px, 12vw, 140px);
+    height: clamp(100px, 12vw, 140px);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.07);
+  }
+  .principles-bar .head {
+    position: relative;
+    z-index: 2;
+    margin-bottom: clamp(20px, 2.2vw, 28px);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .principles-bar .head .left .label {
+    font-size: clamp(13px, 1vw, 15px);
+    color: rgba(255, 255, 255, 0.85);
+    letter-spacing: 0.2em;
+    margin-bottom: 10px;
+  }
+  .principles-bar .head .left h3 {
+    color: #fff;
+    font-size: clamp(22px, 2.3vw, 30px);
+    line-height: 1.3;
+  }
+  .principles-bar .head .right {
+    font-size: clamp(13px, 1.05vw, 16px);
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 320px;
+    line-height: 1.85;
+  }
+  .principles-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(14px, 1.6vw, 22px);
+  }
+  .principle-card {
+    background: rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    padding: clamp(20px, 2.2vw, 28px);
+  }
+  .principle-card .num {
+    font-family: 'Noto Serif TC', serif;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: clamp(22px, 2vw, 28px);
+    line-height: 1;
+    margin-bottom: 12px;
+  }
+  .principle-card h4 {
+    color: #fff;
+    font-size: clamp(17px, 1.4vw, 20px);
+    margin-bottom: 10px;
+    line-height: 1.45;
+  }
+  .principle-card p {
+    font-size: clamp(14px, 1.05vw, 16px);
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.85;
+  }
+
   /* 圖影文卡 */
   .resource-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: clamp(20px, 2.4vw, 32px);
-    margin-bottom: clamp(36px, 4vw, 56px);
   }
 
   .res-card {
@@ -492,313 +577,6 @@
   }
   .target-box .row strong {
     color: var(--navy);
-    font-weight: 500;
-  }
-
-  /* ═══════════ Katie 個人 IP 大區塊（擴充） ═══════════ */
-  .ip-section {
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
-    color: #fff;
-    border-radius: 18px;
-    padding: clamp(32px, 3.6vw, 56px);
-    position: relative;
-    overflow: hidden;
-  }
-  .ip-section::before {
-    content: "";
-    position: absolute;
-    top: -100px;
-    right: -100px;
-    width: clamp(220px, 26vw, 340px);
-    height: clamp(220px, 26vw, 340px);
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-  }
-  .ip-section::after {
-    content: "";
-    position: absolute;
-    bottom: -80px;
-    left: 20%;
-    width: clamp(140px, 16vw, 200px);
-    height: clamp(140px, 16vw, 200px);
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.07);
-  }
-
-  /* IP Header：頭像 + 名字 + 環繞背景 */
-  .ip-header {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: clamp(24px, 2.8vw, 40px);
-    align-items: center;
-    padding-bottom: clamp(28px, 3vw, 40px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    margin-bottom: clamp(28px, 3vw, 40px);
-  }
-  .ip-avatar {
-    width: clamp(84px, 9vw, 112px);
-    height: clamp(84px, 9vw, 112px);
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.18);
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Noto Serif TC', serif;
-    font-weight: 700;
-    color: #fff;
-    font-size: clamp(34px, 3.6vw, 48px);
-    flex-shrink: 0;
-  }
-  .ip-header .ip-text {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-  .ip-header .label {
-    font-size: clamp(13px, 1vw, 15px);
-    letter-spacing: 0.2em;
-    color: rgba(255, 255, 255, 0.85);
-  }
-  .ip-header h3 {
-    color: #fff;
-    font-size: clamp(24px, 2.6vw, 34px);
-    line-height: 1.3;
-  }
-  .ip-header .objective {
-    font-size: clamp(15px, 1.2vw, 18px);
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.85;
-  }
-  .ip-header .objective strong {
-    color: #fff;
-    font-weight: 500;
-  }
-
-  /* IP 背景四項環繞徽章 */
-  .ip-badges {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: clamp(12px, 1.4vw, 18px);
-    margin-bottom: clamp(36px, 4vw, 56px);
-  }
-  .ip-badge {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    border-radius: 12px;
-    padding: clamp(18px, 2vw, 24px);
-    text-align: center;
-    backdrop-filter: blur(6px);
-  }
-  .ip-badge .badge-num {
-    font-family: 'Noto Serif TC', serif;
-    font-weight: 700;
-    color: #fff;
-    font-size: clamp(28px, 2.8vw, 36px);
-    line-height: 1;
-    margin-bottom: 8px;
-  }
-  .ip-badge .badge-num .small {
-    font-size: 0.55em;
-    margin-left: 4px;
-    color: rgba(255, 255, 255, 0.85);
-    font-weight: 500;
-  }
-  .ip-badge .badge-lbl {
-    font-size: clamp(13px, 1vw, 15px);
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.6;
-  }
-  .ip-badge.text-only .badge-num {
-    font-size: clamp(17px, 1.5vw, 22px);
-    line-height: 1.3;
-  }
-
-  /* IP 區段標題 */
-  .ip-subhead {
-    position: relative;
-    z-index: 2;
-    margin-bottom: clamp(20px, 2.2vw, 28px);
-  }
-  .ip-subhead .label {
-    font-size: clamp(13px, 1vw, 15px);
-    letter-spacing: 0.2em;
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 10px;
-  }
-  .ip-subhead h4 {
-    color: #fff;
-    font-size: clamp(22px, 2.2vw, 28px);
-    line-height: 1.4;
-  }
-
-  /* 兩條素材方向 A / B */
-  .direction-grid {
-    position: relative;
-    z-index: 2;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(16px, 2vw, 24px);
-    margin-bottom: clamp(28px, 3vw, 40px);
-  }
-  .direction-card {
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 14px;
-    padding: clamp(24px, 2.6vw, 32px);
-    backdrop-filter: blur(6px);
-  }
-  .direction-card .dir-tag {
-    display: inline-block;
-    padding: 5px 14px;
-    background: rgba(255, 255, 255, 0.95);
-    color: var(--gold-deep);
-    font-family: 'Noto Serif TC', serif;
-    font-weight: 700;
-    font-size: clamp(14px, 1.1vw, 16px);
-    border-radius: 999px;
-    letter-spacing: 0.05em;
-    margin-bottom: 14px;
-  }
-  .direction-card h5 {
-    color: #fff;
-    font-family: 'Noto Serif TC', serif;
-    font-weight: 700;
-    font-size: clamp(18px, 1.7vw, 22px);
-    margin-bottom: 12px;
-    line-height: 1.4;
-  }
-  .direction-card .audience {
-    font-size: clamp(13px, 1vw, 15px);
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 16px;
-    letter-spacing: 0.05em;
-  }
-  .direction-card .hook-block {
-    background: rgba(0, 0, 0, 0.18);
-    border-radius: 10px;
-    padding: clamp(14px, 1.6vw, 18px);
-  }
-  .direction-card .hook-block .hook-ttl {
-    font-size: clamp(12px, 0.9vw, 13px);
-    color: rgba(255, 255, 255, 0.7);
-    letter-spacing: 0.15em;
-    margin-bottom: 6px;
-  }
-  .direction-card .hook-block .hook-txt {
-    font-size: clamp(15px, 1.15vw, 17px);
-    color: #fff;
-    line-height: 1.85;
-    font-weight: 400;
-  }
-
-  /* 三原則清單 */
-  .principles {
-    position: relative;
-    z-index: 2;
-    background: rgba(0, 0, 0, 0.15);
-    border-radius: 14px;
-    padding: clamp(24px, 2.6vw, 32px);
-    margin-bottom: clamp(28px, 3vw, 40px);
-  }
-  .principles .ttl {
-    font-size: clamp(13px, 1vw, 15px);
-    letter-spacing: 0.2em;
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 18px;
-  }
-  .principles ol {
-    list-style: none;
-    counter-reset: pr;
-  }
-  .principles ol li {
-    counter-increment: pr;
-    padding: clamp(12px, 1.4vw, 16px) 0 clamp(12px, 1.4vw, 16px) 44px;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    color: #fff;
-    line-height: 1.85;
-    font-size: clamp(15px, 1.15vw, 17px);
-    position: relative;
-  }
-  .principles ol li:first-child { border-top: 0; padding-top: 0; }
-  .principles ol li:first-child::before { top: 0; }
-  .principles ol li::before {
-    content: counter(pr, decimal-leading-zero);
-    position: absolute;
-    left: 0;
-    top: clamp(12px, 1.4vw, 16px);
-    font-family: 'Noto Serif TC', serif;
-    color: rgba(255, 255, 255, 0.6);
-    font-weight: 500;
-    font-size: clamp(15px, 1.2vw, 18px);
-  }
-  .principles ol li strong {
-    color: #fff;
-    font-weight: 500;
-  }
-
-  /* C:B 比例視覺化 */
-  .ratio-block {
-    position: relative;
-    z-index: 2;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 14px;
-    padding: clamp(24px, 2.6vw, 32px);
-  }
-  .ratio-block .ttl {
-    font-size: clamp(13px, 1vw, 15px);
-    letter-spacing: 0.2em;
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: 8px;
-  }
-  .ratio-block h5 {
-    color: #fff;
-    font-family: 'Noto Serif TC', serif;
-    font-weight: 700;
-    font-size: clamp(20px, 2vw, 24px);
-    margin-bottom: 18px;
-    line-height: 1.4;
-  }
-  .ratio-visual {
-    display: flex;
-    align-items: center;
-    gap: clamp(8px, 1vw, 14px);
-    margin-bottom: 18px;
-    flex-wrap: wrap;
-  }
-  .ratio-visual .dot {
-    width: clamp(28px, 3vw, 38px);
-    height: clamp(28px, 3vw, 38px);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Noto Serif TC', serif;
-    font-weight: 700;
-    font-size: clamp(13px, 1.1vw, 16px);
-    color: var(--gold-deep);
-    flex-shrink: 0;
-  }
-  .ratio-visual .dot.c { background: #fff; }
-  .ratio-visual .dot.b { background: rgba(15, 37, 71, 0.85); color: #fff; }
-  .ratio-visual .ratio-sep {
-    color: rgba(255, 255, 255, 0.7);
-    font-family: 'Noto Serif TC', serif;
-    font-size: clamp(18px, 1.6vw, 22px);
-    padding: 0 4px;
-  }
-  .ratio-block p {
-    font-size: clamp(14px, 1.1vw, 16px);
-    color: rgba(255, 255, 255, 0.9);
-    line-height: 1.95;
-  }
-  .ratio-block p strong {
-    color: #fff;
     font-weight: 500;
   }
 
@@ -1081,7 +859,6 @@
     margin-top: 2px;
   }
 
-  /* 整併放量 */
   .gate-box {
     background: var(--navy);
     color: #fff;
@@ -1144,7 +921,7 @@
     font-weight: 500;
   }
 
-  /* 響應式：平板 ≤960px */
+  /* 響應式 */
   @media (max-width: 960px) {
     .axis-flow { grid-template-columns: 1fr; }
     .resource-grid { grid-template-columns: 1fr; }
@@ -1153,9 +930,7 @@
       gap: 12px;
     }
     .ai-arrow { transform: rotate(90deg); padding: 4px 0; }
-    .ip-header { grid-template-columns: 1fr; text-align: left; gap: 16px; }
-    .ip-badges { grid-template-columns: repeat(2, 1fr); }
-    .direction-grid { grid-template-columns: 1fr; }
+    .principles-grid { grid-template-columns: 1fr; }
     .strategy-hero { grid-template-columns: 1fr; }
     .strategy-hero .right {
       border-left: 0;
@@ -1176,7 +951,6 @@
     }
   }
 
-  /* 響應式：手機 ≤560px */
   @media (max-width: 560px) {
     section { padding: 56px 18px; }
 
@@ -1199,23 +973,14 @@
     .ai-step h4 { font-size: 18px; }
     .ai-step p { font-size: 15px; }
 
+    .principles-bar { padding: 26px 22px; border-radius: 12px; }
+    .principles-bar .head h3 { font-size: 20px; }
+    .principle-card { padding: 20px; }
+    .principle-card h4 { font-size: 17px; }
+
     .res-card { padding: 24px 22px; border-radius: 12px; }
     .res-card h3 { font-size: 20px; }
     .res-card .role { font-size: 15px; }
-
-    .ip-section { padding: 28px 22px; border-radius: 14px; }
-    .ip-header h3 { font-size: 22px; }
-    .ip-badges { grid-template-columns: 1fr 1fr; gap: 10px; }
-    .ip-badge { padding: 16px 14px; }
-    .ip-badge .badge-num { font-size: 26px; }
-    .ip-badge.text-only .badge-num { font-size: 16px; }
-    .ip-badge .badge-lbl { font-size: 13px; }
-    .ip-subhead h4 { font-size: 20px; }
-    .direction-card { padding: 22px; }
-    .direction-card h5 { font-size: 18px; }
-    .principles { padding: 22px; }
-    .ratio-block { padding: 22px; }
-    .ratio-block h5 { font-size: 18px; }
 
     .strategy-hero { padding: 28px 22px; border-radius: 12px; }
     .strategy-hero .left h3 { font-size: 24px; }
@@ -1268,7 +1033,7 @@
         <h3>內部品牌宣傳</h3>
         <p>
           以 AI 企劃 Bot 產出月主題與工作分派,圖文與影文同步製作,
-          並重製舊素材擴增可用內容池,搭配個人 IP IG 經營擴大自然觸及。
+          並重製舊素材擴增可用內容池,搭配外部 KOC/KOL 聲量擴大自然觸及。
         </p>
       </div>
       <div class="axis-card">
@@ -1316,8 +1081,8 @@
       <p class="desc">
         內部素材以「呈現有效性」為唯一指標,執行流程從 AI 企劃 Bot 開始——
         Bot 定期提供主題方向、業主選定後生成月企劃、並分派工作人員;
-        接著圖文與影文兩條軸同步製作,並把<strong>舊素材重製</strong>作為素材池擴增策略。
-        對外導流端則搭配執行長 <strong>Katie</strong> 個人 IP IG 經營,擴大自然觸及。
+        所有素材依循<strong>三項製作原則</strong>產出,
+        圖文與影文兩條軸同步製作,並把<strong>舊素材重製</strong>作為素材池擴增策略。
       </p>
     </div>
 
@@ -1359,12 +1124,44 @@
       </div>
     </div>
 
+    <!-- 素材製作三原則（圖文影文共用） -->
+    <div class="principles-bar">
+      <div class="head">
+        <div class="left">
+          <div class="label">CONTENT PRINCIPLE · 製作三原則</div>
+          <h3>所有圖文與影文素材<br>共同遵循的製作準則</h3>
+        </div>
+        <div class="right">
+          無論是圖文或影文,所有素材在企劃與製作階段都必須先通過這三項原則的檢核,
+          才能進入排程。
+        </div>
+      </div>
+
+      <div class="principles-grid">
+        <div class="principle-card">
+          <div class="num">01</div>
+          <h4>開場三秒明確聚焦客群</h4>
+          <p>前 3 秒就要讓對應的目標客群知道「這在跟我說話」,才有後續觀看與停留。</p>
+        </div>
+        <div class="principle-card">
+          <div class="num">02</div>
+          <h4>客觀事實或數據陳述</h4>
+          <p>避免自吹自擂,說服力來自外部驗證、第三方數據與真實使用結果,不來自品牌自我宣稱。</p>
+        </div>
+        <div class="principle-card">
+          <div class="num">03</div>
+          <h4>專注問題的根本解決</h4>
+          <p>減少抨擊現行產業常態,專注在「怎麼解決」而非「批判什麼」,建設性內容比批判性內容更能建立信任。</p>
+        </div>
+      </div>
+    </div>
+
     <!-- 圖文 + 影文 -->
     <div class="resource-grid">
       <div class="res-card">
         <div class="label">A · GRAPHIC｜圖文</div>
         <h3>優惠 / 活動 / 知識</h3>
-        <p class="role">承擔品牌活躍度與訊息觸達,以每月貼文排程穩定產出,並配合個人 IP IG 經營導流。</p>
+        <p class="role">承擔品牌活躍度與訊息觸達,以每月貼文排程穩定產出。</p>
         <ul class="res-list">
           <li>
             <strong>企劃</strong>
@@ -1411,8 +1208,8 @@
           <div class="sub-ttl">SECOND LAYER · 第二層</div>
           <h4>舊素材重製</h4>
           <p>
-            把原本較適合「個人 IP」卻放在品牌 IG 的舊影片抽出來重製封面與標題,
-            <strong style="color:var(--gold);">過去低曝光的影片重新打包,就是新素材</strong>。
+            把過去低曝光的影片重新打包封面與標題、重新調整剪輯節奏,
+            <strong style="color:var(--gold);">舊素材對新客戶就是新素材</strong>。
           </p>
         </div>
         <div class="target-box">
@@ -1423,122 +1220,6 @@
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- ═══ Katie 個人 IP 大區塊（擴充） ═══ -->
-    <div class="ip-section">
-
-      <!-- Header -->
-      <div class="ip-header">
-        <div class="ip-avatar">K</div>
-        <div class="ip-text">
-          <div class="label">PERSONAL IP · 執行長個人品牌經營</div>
-          <h3>Katie 個人 IP IG 同步經營</h3>
-          <p class="objective">
-            重建執行長 Katie 的個人 IP 輪廓,<strong>擴大演算法自然觸及</strong>,
-            作為品牌 IG 之外的第二導流管道。
-            當 Katie 個人 IP 的素材開始能產出實際營收時,
-            即代表雙軸驗證完成、可進入廣告放量階段。
-          </p>
-        </div>
-      </div>
-
-      <!-- IP 背景四項徽章 -->
-      <div class="ip-badges">
-        <div class="ip-badge">
-          <div class="badge-num">33<span class="small">年</span></div>
-          <div class="badge-lbl">實戰傳承</div>
-        </div>
-        <div class="ip-badge">
-          <div class="badge-num">1,000+</div>
-          <div class="badge-lbl">輔導全台沙龍轉型</div>
-        </div>
-        <div class="ip-badge text-only">
-          <div class="badge-num">頭皮管理</div>
-          <div class="badge-lbl">專注核心領域</div>
-        </div>
-        <div class="ip-badge text-only">
-          <div class="badge-num">高客單收入線</div>
-          <div class="badge-lbl">幫沙龍多開一條</div>
-        </div>
-      </div>
-
-      <!-- 素材方向 A / B -->
-      <div class="ip-subhead">
-        <div class="label">CONTENT DIRECTION · 素材兩條方向</div>
-        <h4>開場三秒,聚焦目標客群注意力</h4>
-      </div>
-
-      <div class="direction-grid">
-        <div class="direction-card">
-          <span class="dir-tag">A · to 沙龍業者(小 B)</span>
-          <h5>沙龍業相關常見問題</h5>
-          <div class="audience">受眾:美髮從業人員、沙龍經營者</div>
-          <div class="hook-block">
-            <div class="hook-ttl">3-SEC HOOK · 開場主軸</div>
-            <div class="hook-txt">
-              直接切入沙龍業日常痛點與經營難題,
-              引發從業人員「這就是我的問題」的共鳴。
-            </div>
-          </div>
-        </div>
-
-        <div class="direction-card">
-          <span class="dir-tag">B · to 一般客群(C)</span>
-          <h5>一般生活常見問題</h5>
-          <div class="audience">受眾:中齡以上消費者、有頭皮困擾的一般大眾</div>
-          <div class="hook-block">
-            <div class="hook-ttl">3-SEC HOOK · 開場主軸</div>
-            <div class="hook-txt">
-              從生活情境出發(換季出油、洗髮迷思、頭皮不適),
-              讓一般觀眾感受到「這在說我」。
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 三原則 -->
-      <div class="principles">
-        <div class="ttl">CONTENT PRINCIPLE · 素材製作三原則</div>
-        <ol>
-          <li>
-            <strong>開場三秒明確聚焦其客群的注意力</strong>——
-            前 3 秒就要讓對應客群知道「這影片在跟我說話」。
-          </li>
-          <li>
-            <strong>主內容避免自吹自擂,專注在客觀事實或數據陳述</strong>——
-            說服力來自外部驗證,不來自品牌自我宣稱。
-          </li>
-          <li>
-            <strong>減少抨擊現行產業常態,專注問題的根本解決</strong>——
-            建設性內容比批判性內容更能建立信任感。
-          </li>
-        </ol>
-      </div>
-
-      <!-- C:B 比例 -->
-      <div class="ratio-block">
-        <div class="ttl">RATIO · C 端與 B 端比例配置</div>
-        <h5>預設 C 端 : B 端 = 4~5 : 1</h5>
-
-        <div class="ratio-visual">
-          <span class="dot c">C</span>
-          <span class="dot c">C</span>
-          <span class="dot c">C</span>
-          <span class="dot c">C</span>
-          <span class="dot c">C</span>
-          <span class="ratio-sep">:</span>
-          <span class="dot b">B</span>
-        </div>
-
-        <p>
-          <strong>C 端問題沙龍業者也會需要學習</strong>(以利回應其客群);
-          <strong>B 端問題則 only for 沙龍業者</strong>。
-          策略上盡量吸引 C 端消費者,
-          <strong>有量的情況下,B 端也會響應而來</strong>。
-        </p>
-      </div>
-
     </div>
 
   </div>
@@ -1593,7 +1274,7 @@
         <span class="priority">PRIMARY · 主軸</span>
       </div>
       <p class="channel-intro">
-        透過<strong>網紅與中小型藝人</strong>持續產出真實使用內容,
+        透過<strong>外部 KOC / KOL 開發鏈</strong>持續產出真實使用內容,
         搭配<strong>樣品規劃、導購落地頁、廣告投放策略</strong>形成完整轉換鏈,
         把品牌訊息直接打進用戶端,建立可被看見的消費聲量。
       </p>
@@ -1694,7 +1375,7 @@
       </div>
       <div class="right">
         當以上兩條軸——<strong>內部素材池</strong>與<strong>外部合作口碑</strong>——
-        都已經進入穩定循環,Katie 個人 IP 的素材開始能產出實際營收時,
+        都已經進入穩定循環,並驗證能轉出實際營收時,
         才開始把廣告預算用於放量曝光。
         在此之前的廣告操作只做追蹤架構建置與小額素材驗證。
         把廣告當作<strong>「驗證有效後的放大器」</strong>,
